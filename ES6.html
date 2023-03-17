@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    ES6: phiên bản tháng 6/2015
+    1. cung cấp thêm let, const
+        1.1 phân biệt let , const, var
+        const: không thay đổi giá trị được ;
+        let  : thay đổi giá trị được nhưng không khai báo lại được 
+        var : thay đổi giá trị được và  khai báo lại được;
+        let const :phạm vi là block-scope {} tức là nếu nó được khai báo trong block thì
+        phạm vi của nó là block;
+        var là phạm vi function 
+        hoisting : chỉ dùng cho var; let và const thì không!
+    2. tham số mặc định default parameter 
+    3. tham số còn lại (Rest)
+    4. cú pháp spread
+    5. destructuring:
+    6. arrow function mũi tên : hàm mũi tên. không có Context.
+    7. Lớp class
+    7. import : nạp vào .
+        export : xuất  ra.
+    8. promise bất đồng bộ 
+     -->
+    <script>
+
+        //console.log(Math.floor(Math.random()*8));
+        // phạm vi global
+        //  function test(a){
+        //     if(typeof(b)=="undefined"){
+        //         b=1;
+        //     }
+        //     return a*b
+        //  }
+        //  console.log(test(47));
+
+        // function rest(...listParam) {
+
+        //     console.log(listParam);
+        //     console.log(arguments);
+        // }
+        // rest(5,6,8,9);
+
+        // let array1=[4,6,8];
+        // let array2 = [3, 5, 7];
+        // let array=[...array1,...array2];
+        // console.log(array);
+        // let obj={
+        //     name:"Linh",
+        // }
+        // obj1={...obj};//  shallow clone  
+        // obj.name="Hồng";
+        // console.log(obj1);
+        // let listStudents=["hồng","hoa","huệ"];
+        // let [name1, name2, name3,name4 ]=listStudents;
+        // console.log("name1",name1);
+        // console.log("name2", name2);
+        // console.log("name4", name4);
+        // let obj={
+        //     name:"linh",
+        //     age:24,
+        //     address:"hà nội"
+        // }
+        // let {name12,age,address}= obj;
+        // console.log(name12);
+
+        //    let perSon={
+        //         name:"Huy",
+        //         myHobbies :{
+        //             age:"24",
+        //             run:()=>{ //arrow không có CONTEXT
+        //                 console.log(this);
+        //             }
+        //         },
+        //         say:()=>{
+        //             console.log(this);
+        //         }
+        //    }
+        //    console.log(perSon.myHobbies.run());
+        //    console.log(perSon.say());
+        // đối tưỢng gọi phương thức thì this sẽ đại diện cho đối tượng đấy
+        // map,forEach, filter
+        //map tạo ra 1 mảng mới không thay đổi độ dài của nó
+        //filter :lọc - tạo ra một mảng mới 
+        //     let listArray=[5,4,8,9];
+        //    let result= listArray.filter((value1,index1,array1)=>{
+        //         console.log("value",value1);
+        //         console.log("index", index1);
+        //         console.log("array", array1);
+        //          return  value1>5;
+        //         console.log("******************");
+
+        //     })
+        //     console.log(result);
+        // let person1 = {
+        //     name: "Hoa",
+        //     age: 24
+        // }
+        // let person2 = {
+        //     name: "Hồng",
+        //     age: 25
+        // }
+        // let person3 = {
+        //     name: "Huệ",
+        //     age: 26
+        // }
+        // function NewPerSon(name,age) {
+        //     this.name=name;
+        //     this.age=age;
+        // }
+        // class Person {
+        //     constructor(name, age) {
+        //         this.name = name
+        //         this.age = age
+        //         this.run = function () {
+        //             console.log("hello mọi người!");
+        //         }
+        //     }
+
+        //     sayhello = function () {
+        //         console.log("say hello");
+        //     }
+        // }
+        // let perSon1 = new Person("Hồng", 24);
+        // let perSon2 = new Person("Hoa", 25);
+
+        // console.log(perSon1);
+        // console.log(perSon2);
+        // console.log(perSon1.run());
+        // console.log(perSon1.sayhello());
+        //queue hàng đợi cơ chế event loop
+        // call back  call back hell : hell địa ngục 
+        // call back phải thoã mãn:1 là hàm, 2 là hàm được truyền làm đối số của hàm khác
+    //    let soDt;
+    //    function xinSoDt(callback111){
+    //         console.log("Khánh gọi cho Dưỡng xin số Mai");
+    //         console.log("đợi Dưỡng tìm số Mai");
+    //         setTimeout(() => {
+    //             console.log("đã tìm thấy số của Mai");
+    //             soDt =99999999;
+    //            callback111(soDt);//daTimThaySdt(soDt)
+    //         }, 4000);
+    //    }
+    //    xinSoDt(daTimThaySdt);
+    //    function daTimThaySdt(daTimSdt) {
+    //     console.log("số điện thoại của Mai là", daTimSdt);
+    //    }
+    // let result=new Promise((resolve, reject) => {
+    //     // call Api xử lí
+    //     //resolve: hoàn thành 
+    //     // reject : từ chối hay là thất bai;
+    //     // resolve("đã lấy được data");
+    //     reject("lỗi không lấy được data");
+    // })
+    // result
+    // .then((response)=>{
+    //     console.log("response", response);
+    // })
+    // .catch((error)=>{
+    //     console.log("error",error);
+    // })
+    // .finally(()=>{
+    //     console.log("ok!");
+    // })
+        
+    </script>
+    
+    
+   
+
+</body>
+
+</html>
